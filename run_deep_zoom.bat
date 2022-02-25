@@ -8,7 +8,7 @@ for /r %%f in (input\*) do (
     echo %%f
     echo %%~nf
     cd .\libvips\bin\
-    start /wait vips resize %%f %enlargeDir%\%%~nxf 10
+    start /wait vips resize %%f %enlargeDir%\%%~nxf 2
 )
 
 rem MAKE DEEP ZOOM TILES FOR PICTURES IN ENLARGE FOLDER

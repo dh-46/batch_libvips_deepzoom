@@ -10,7 +10,7 @@ includedir=/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/include
 libsuffix=-3_1
 Name: Imath
 Description: Imath library: vector/matrix and math operations, plus the half type.
-Version: 3.1.2
+Version: 3.1.4
 Requires:
 Conflicts:
 Libs.private: -L${libdir} -lImath${libsuffix}

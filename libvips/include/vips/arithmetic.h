@@ -31,8 +31,8 @@
 
  */
 
-#ifndef IM_ARITHMETIC_H
-#define IM_ARITHMETIC_H
+#ifndef VIPS_ARITHMETIC_H
+#define VIPS_ARITHMETIC_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -50,6 +50,12 @@ extern "C" {
  * @VIPS_OPERATION_MATH_LOG10: log base 10 
  * @VIPS_OPERATION_MATH_EXP: e to the something
  * @VIPS_OPERATION_MATH_EXP10: 10 to the something
+ * @VIPS_OPERATION_MATH_SINH: sinh(), angles in radians
+ * @VIPS_OPERATION_MATH_COSH: cosh(), angles in radians
+ * @VIPS_OPERATION_MATH_TANH: tanh(), angles in radians
+ * @VIPS_OPERATION_MATH_ASINH: asinh(), angles in radians
+ * @VIPS_OPERATION_MATH_ACOSH: acosh(), angles in radians
+ * @VIPS_OPERATION_MATH_ATANH: atanh(), angles in radians
  *
  * See also: vips_math().
  */
@@ -64,6 +70,12 @@ typedef enum {
 	VIPS_OPERATION_MATH_LOG10,
 	VIPS_OPERATION_MATH_EXP,
 	VIPS_OPERATION_MATH_EXP10,
+	VIPS_OPERATION_MATH_SINH,
+	VIPS_OPERATION_MATH_COSH,
+	VIPS_OPERATION_MATH_TANH,
+	VIPS_OPERATION_MATH_ASINH,
+	VIPS_OPERATION_MATH_ACOSH,
+	VIPS_OPERATION_MATH_ATANH,
 	VIPS_OPERATION_MATH_LAST
 } VipsOperationMath;
 
@@ -71,12 +83,14 @@ typedef enum {
  * VipsOperationMath2:
  * @VIPS_OPERATION_MATH2_POW: pow( left, right )
  * @VIPS_OPERATION_MATH2_WOP: pow( right, left ) 
+ * @VIPS_OPERATION_MATH2_ATAN2: atan2( left, right ) 
  *
  * See also: vips_math().
  */
 typedef enum {
 	VIPS_OPERATION_MATH2_POW,
 	VIPS_OPERATION_MATH2_WOP,
+	VIPS_OPERATION_MATH2_ATAN2,
 	VIPS_OPERATION_MATH2_LAST
 } VipsOperationMath2;
 
@@ -235,6 +249,18 @@ int vips_log( VipsImage *in, VipsImage **out, ... )
 	__attribute__((sentinel));
 int vips_log10( VipsImage *in, VipsImage **out, ... )
 	__attribute__((sentinel));
+int vips_sinh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
+int vips_cosh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
+int vips_tanh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
+int vips_asinh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
+int vips_acosh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
+int vips_atanh( VipsImage *in, VipsImage **out, ... )
+	__attribute__((sentinel));
 
 int vips_complex( VipsImage *in, VipsImage **out, 
 	VipsOperationComplex cmplx, ... )
@@ -368,6 +394,8 @@ int vips_pow( VipsImage *left, VipsImage *right, VipsImage **out, ... )
 	__attribute__((sentinel));
 int vips_wop( VipsImage *left, VipsImage *right, VipsImage **out, ... )
 	__attribute__((sentinel));
+int vips_atan2( VipsImage *left, VipsImage *right, VipsImage **out, ... )
+	__attribute__((sentinel));
 int vips_math2_const( VipsImage *in, VipsImage **out, 
 	VipsOperationMath2 math2, const double *c, int n, ... )
 	__attribute__((sentinel));
@@ -377,12 +405,17 @@ int vips_pow_const( VipsImage *in, VipsImage **out,
 int vips_wop_const( VipsImage *in, VipsImage **out, 
 	const double *c, int n, ... )
 	__attribute__((sentinel));
+int vips_atan2_const( VipsImage *in, VipsImage **out, 
+	const double *c, int n, ... )
+	__attribute__((sentinel));
 int vips_math2_const1( VipsImage *in, VipsImage **out, 
 	VipsOperationMath2 math2, double c, ... )
 	__attribute__((sentinel));
 int vips_pow_const1( VipsImage *in, VipsImage **out, double c, ... )
 	__attribute__((sentinel));
 int vips_wop_const1( VipsImage *in, VipsImage **out, double c, ... )
+	__attribute__((sentinel));
+int vips_atan2_const1( VipsImage *in, VipsImage **out, double c, ... )
 	__attribute__((sentinel));
 
 int vips_avg( VipsImage *in, double *out, ... )
@@ -422,4 +455,4 @@ int vips_profile( VipsImage *in, VipsImage **columns, VipsImage **rows, ... )
 }
 #endif /*__cplusplus*/
 
-#endif /*IM_ARITHMETIC_H*/
+#endif /*VIPS_ARITHMETIC_H*/

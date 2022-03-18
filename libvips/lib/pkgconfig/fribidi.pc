@@ -4,6 +4,6 @@ includedir=${prefix}/include
 
 Name: GNU FriBidi
 Description: Unicode Bidirectional Algorithm Library
-Version: 1.0.10
+Version: 1.0.11
 Libs: -L${libdir} -lfribidi
 Cflags: -I${includedir}/fribidi

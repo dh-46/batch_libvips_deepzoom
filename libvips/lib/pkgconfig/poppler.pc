@@ -4,7 +4,7 @@ includedir=/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/include
 
 Name: poppler
 Description: PDF rendering library
-Version: 21.08.0
+Version: 22.01.0
 
 Libs: -L${libdir} -lpoppler
 Cflags: -I${includedir}/poppler

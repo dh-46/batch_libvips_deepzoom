@@ -465,6 +465,7 @@ g_get_user_data_dir
 g_get_user_name
 g_get_user_runtime_dir
 g_get_user_special_dir
+g_get_user_state_dir
 g_getenv
 g_getenv_utf8
 g_hash_table_add
@@ -488,6 +489,7 @@ g_hash_table_lookup
 g_hash_table_lookup_extended
 g_hash_table_new
 g_hash_table_new_full
+g_hash_table_new_similar
 g_hash_table_ref
 g_hash_table_remove
 g_hash_table_remove_all
@@ -682,8 +684,10 @@ g_locale_from_utf8
 g_locale_to_utf8
 g_log
 g_log_default_handler
+g_log_get_debug_enabled
 g_log_remove_handler
 g_log_set_always_fatal
+g_log_set_debug_enabled
 g_log_set_default_handler
 g_log_set_fatal_mask
 g_log_set_handler
@@ -718,6 +722,7 @@ g_main_context_invoke_full
 g_main_context_is_owner
 g_main_context_iteration
 g_main_context_new
+g_main_context_new_with_flags
 g_main_context_pending
 g_main_context_pop_thread_default
 g_main_context_prepare
@@ -1366,12 +1371,14 @@ g_test_create_case
 g_test_create_suite
 g_test_expect_message
 g_test_fail
+g_test_fail_printf
 g_test_failed
 g_test_get_dir
 g_test_get_filename
 g_test_get_path
 g_test_get_root
 g_test_incomplete
+g_test_incomplete_printf
 g_test_init
 g_test_log_buffer_free
 g_test_log_buffer_new
@@ -1393,6 +1400,7 @@ g_test_run
 g_test_run_suite
 g_test_set_nonfatal_assertions
 g_test_skip
+g_test_skip_printf
 g_test_subprocess
 g_test_suite_add
 g_test_suite_add_suite

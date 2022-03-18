@@ -4,7 +4,7 @@ includedir=${prefix}/include
 
 Name: spng
 Description: PNG decoding and encoding library
-Version: 0.6.3
+Version: 0.7.1
 Requires.private: zlib
 Libs: -L${libdir} -lspng
 Libs.private: -lm -lz

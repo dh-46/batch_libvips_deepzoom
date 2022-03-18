@@ -5,7 +5,7 @@ includedir=${prefix}/include
 
 Name: libjxl_threads
 Description: JPEG XL multi-thread runner using std::threads.
-Version: 0.5.0
+Version: 0.6.1
 Requires.private: 
 Libs: -L${libdir} -ljxl_threads
 Libs.private: -lm

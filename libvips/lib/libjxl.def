@@ -21,6 +21,7 @@ JxlDecoderCreate
 JxlDecoderDCOutBufferSize
 JxlDecoderDefaultPixelFormat
 JxlDecoderDestroy
+JxlDecoderExtraChannelBufferSize
 JxlDecoderFlushImage
 JxlDecoderGetBasicInfo
 JxlDecoderGetColorAsEncodedProfile
@@ -38,6 +39,7 @@ JxlDecoderReleaseJPEGBuffer
 JxlDecoderReset
 JxlDecoderRewind
 JxlDecoderSetDCOutBuffer
+JxlDecoderSetExtraChannelBuffer
 JxlDecoderSetImageOutBuffer
 JxlDecoderSetImageOutCallback
 JxlDecoderSetInput
@@ -55,6 +57,7 @@ JxlEncoderAddJPEGFrame
 JxlEncoderCloseInput
 JxlEncoderCreate
 JxlEncoderDestroy
+JxlEncoderInitBasicInfo
 JxlEncoderOptionsCreate
 JxlEncoderOptionsSetDecodingSpeed
 JxlEncoderOptionsSetDistance

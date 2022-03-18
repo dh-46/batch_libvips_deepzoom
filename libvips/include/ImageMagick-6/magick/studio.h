@@ -143,13 +143,12 @@ extern "C" {
 # include <arm/limits.h>
 #endif
 
-#if defined(MAGICKCORE__OPENCL) && !defined(MAGICK_PIXEL_RGBA)
-#if defined(MAGICKCORE_HAVE_CL_CL_H)
+#if defined(MAGICKCORE_HAVE_CL_CL_H) && !defined(MAGICK_PIXEL_RGBA)
 #  include <CL/cl.h>
+#  define MAGICKCORE_OPENCL_SUPPORT  1
 #endif
-#if defined(MAGICKCORE_HAVE_OPENCL_CL_H)
+#if defined(MAGICKCORE_HAVE_OPENCL_CL_H) && !defined(MAGICK_PIXEL_RGBA)
 #  include <OpenCL/cl.h>
-#endif
 #  define MAGICKCORE_OPENCL_SUPPORT  1
 #endif
 
@@ -179,9 +178,6 @@ extern int vsnprintf(char *,size_t,const char *,va_list);
 #if defined(MAGICKCORE_WINDOWS_SUPPORT) || defined(MAGICKCORE_POSIX_SUPPORT)
 # include <sys/types.h>
 # include <sys/stat.h>
-# if defined(MAGICKCORE_HAVE_SYS_TIMEB_H)
-# include <sys/timeb.h>
-# endif
 # if defined(MAGICKCORE_POSIX_SUPPORT)
 #  if defined(MAGICKCORE_HAVE_SYS_NDIR_H) || defined(MAGICKCORE_HAVE_SYS_DIR_H) || defined(MAGICKCORE_HAVE_NDIR_H)
 #   define dirent direct

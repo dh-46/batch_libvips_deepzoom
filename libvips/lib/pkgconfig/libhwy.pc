@@ -5,6 +5,6 @@ includedir=${prefix}/include
 
 Name: libhwy
 Description: Efficient and performance-portable SIMD wrapper
-Version: 0.14.0
+Version: 0.15.0
 Libs: -L${libdir} -lhwy
 Cflags: -I${includedir}

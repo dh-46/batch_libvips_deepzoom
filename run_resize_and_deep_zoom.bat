@@ -16,6 +16,6 @@ for %%d in ( %enlargeDir%\*) do (
     echo %%d
     echo %%~nd
     cd .\libvips\bin\
-    start /wait vips dzsave %%d %outputDir%\%%~nd --layout google --background 0 --suffix .webp
+    start /wait vips dzsave %%d %outputDir%\%%~nd --layout google --background 256 --suffix .webp --tile-size 512
 )
 pause

@@ -5,8 +5,8 @@ includedir=${prefix}/include
 
 Name: libjxl
 Description: Loads and saves JPEG XL files
-Version: 0.5.0
-Requires.private: libhwy libbrotlicommon libbrotlienc libbrotlidec
+Version: 0.6.1
+Requires.private: libhwy libbrotlicommon libbrotlienc libbrotlidec lcms2
 Libs: -L${libdir} -ljxl
 Libs.private: -lm
 Cflags: -I${includedir}

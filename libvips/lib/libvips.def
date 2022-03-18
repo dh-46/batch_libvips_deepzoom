@@ -15,9 +15,10 @@ gif_initialise
 libheif_metadata DATA
 lzw_context_create
 lzw_context_destroy
-lzw_decode_continuous
+lzw_decode
 lzw_decode_init
-lzw_decode_map_continuous
+lzw_decode_init_map
+lzw_decode_map
 render_thread_state_get_type
 sink_memory_thread_state_get_type
 sink_thread_state_get_type
@@ -77,6 +78,7 @@ vips__argument_get_instance
 vips__argument_table_lookup
 vips__attach_input
 vips__avgdxdy
+vips__avif_suffs DATA
 vips__bandalike
 vips__bandalike_vec
 vips__bandup
@@ -106,6 +108,7 @@ vips__copy_input
 vips__correl
 vips__demand_hint_array
 vips__disc_threshold DATA
+vips__dll_dir
 vips__draw_circle_direct
 vips__draw_flood_direct
 vips__draw_line_direct
@@ -160,6 +163,7 @@ vips__gslist_gvalue_get
 vips__gslist_gvalue_merge
 vips__gvalue_ref_string_new
 vips__has_extension_block
+vips__heic_suffs DATA
 vips__heif_error
 vips__heif_suffs DATA
 vips__icc_dir
@@ -173,7 +177,6 @@ vips__image_sizeof_bandformat DATA
 vips__image_wio_output
 vips__improve
 vips__initialize
-vips__ink_to_vector
 vips__insert_just_one
 vips__insert_paste_region
 vips__interpolate_init
@@ -251,6 +254,10 @@ vips__render_shutdown
 vips__reorder_clear
 vips__reorder_init
 vips__reorder_set_input
+vips__save_pbm_suffs DATA
+vips__save_pfm_suffs DATA
+vips__save_pgm_suffs DATA
+vips__save_ppm_suffs DATA
 vips__seek
 vips__seek_no_error
 vips__set_create_time
@@ -323,6 +330,7 @@ vips_abs
 vips_abs_get_type
 vips_access_get_type
 vips_acos
+vips_acosh
 vips_add
 vips_add_get_type
 vips_add_option_entries
@@ -377,7 +385,12 @@ vips_array_int_newv
 vips_arrayjoin
 vips_arrayjoin_get_type
 vips_asin
+vips_asinh
 vips_atan
+vips_atan2
+vips_atan2_const
+vips_atan2_const1
+vips_atanh
 vips_autorot
 vips_autorot_get_type
 vips_autorot_remove_angle
@@ -613,6 +626,7 @@ vips_copy_file
 vips_copy_get_type
 vips_correlation_get_type
 vips_cos
+vips_cosh
 vips_countlines
 vips_countlines_get_type
 vips_create_get_type
@@ -715,6 +729,7 @@ vips_extract_band
 vips_extract_band_get_type
 vips_eye
 vips_eye_get_type
+vips_fail_on_get_type
 vips_falsecolour
 vips_falsecolour_get_type
 vips_fastcor
@@ -823,8 +838,14 @@ vips_foreign_map
 vips_foreign_nifti_suffs DATA
 vips_foreign_operation_init
 vips_foreign_png_filter_get_type
+vips_foreign_ppm_format_get_type
 vips_foreign_print_matrix_get_type
 vips_foreign_save
+vips_foreign_save_avif_target_get_type
+vips_foreign_save_cgif_buffer_get_type
+vips_foreign_save_cgif_file_get_type
+vips_foreign_save_cgif_get_type
+vips_foreign_save_cgif_target_get_type
 vips_foreign_save_csv_file_get_type
 vips_foreign_save_csv_get_type
 vips_foreign_save_csv_target_get_type
@@ -851,6 +872,9 @@ vips_foreign_save_matrix_file_get_type
 vips_foreign_save_matrix_get_type
 vips_foreign_save_matrix_target_get_type
 vips_foreign_save_nifti_get_type
+vips_foreign_save_pbm_target_get_type
+vips_foreign_save_pfm_target_get_type
+vips_foreign_save_pgm_target_get_type
 vips_foreign_save_png_buffer_get_type
 vips_foreign_save_png_file_get_type
 vips_foreign_save_png_get_type
@@ -916,6 +940,9 @@ vips_getpoint_get_type
 vips_gifload
 vips_gifload_buffer
 vips_gifload_source
+vips_gifsave
+vips_gifsave_buffer
+vips_gifsave_target
 vips_globalbalance
 vips_globalbalance_get_type
 vips_gravity
@@ -998,6 +1025,7 @@ vips_image_get_double
 vips_image_get_fields
 vips_image_get_filename
 vips_image_get_format
+vips_image_get_format_max
 vips_image_get_height
 vips_image_get_history
 vips_image_get_image
@@ -1500,6 +1528,7 @@ vips_similarity_get_type
 vips_sin
 vips_sines
 vips_sines_get_type
+vips_sinh
 vips_sink
 vips_sink_base_init
 vips_sink_base_progress
@@ -1527,6 +1556,7 @@ vips_source_decode
 vips_source_g_input_stream_get_type
 vips_source_g_input_stream_new
 vips_source_get_type
+vips_source_is_file
 vips_source_is_mappable
 vips_source_length
 vips_source_map
@@ -1569,11 +1599,13 @@ vips_sum_get_type
 vips_svgload
 vips_svgload_buffer
 vips_svgload_source
+vips_svgload_string
 vips_switch
 vips_switch_get_type
 vips_system
 vips_system_get_type
 vips_tan
+vips_tanh
 vips_target_custom_get_type
 vips_target_custom_new
 vips_target_finish

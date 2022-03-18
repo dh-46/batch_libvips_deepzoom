@@ -1,18 +1,16 @@
 prefix=/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
+libdir=${prefix}/lib
 includedir=${prefix}/include
-sysconfdir=${prefix}/etc
-localstatedir=${prefix}/var
-PACKAGE=fontconfig
+
+sysconfdir=/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/etc
+localstatedir=/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/var
 confdir=${sysconfdir}/fonts
-cachedir=LOCAL_APPDATA_FONTCONFIG_CACHE
+cachedir=${localstatedir}/cache/fontconfig
 
 Name: Fontconfig
 Description: Font configuration and customization library
 Version: 2.13.94
-Requires:  freetype2 >= 21.0.15
-Requires.private: 
+Requires: freetype2 >=  21.0.15
+Requires.private: expat
 Libs: -L${libdir} -lfontconfig
-Libs.private:  -L/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/lib -lexpat
-Cflags: -I${includedir}  -I/data/mxe/usr/x86_64-w64-mingw32.shared.posix.all/include
+Cflags: -I${includedir}

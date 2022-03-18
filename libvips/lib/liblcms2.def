@@ -223,6 +223,7 @@ cmsDeltaE
 cmsDesaturateLab
 cmsDetectBlackPoint
 cmsDetectDestinationBlackPoint
+cmsDetectRGBProfileGamma
 cmsDetectTAC
 cmsDictAddEntry
 cmsDictAlloc
@@ -280,6 +281,7 @@ cmsGetProfileIOhandler
 cmsGetProfileInfo
 cmsGetProfileInfoASCII
 cmsGetProfileVersion
+cmsGetStageContextID
 cmsGetSupportedIntents
 cmsGetSupportedIntentsTHR
 cmsGetTagCount

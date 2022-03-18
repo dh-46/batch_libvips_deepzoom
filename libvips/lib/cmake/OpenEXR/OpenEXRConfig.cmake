@@ -25,9 +25,14 @@ endmacro()
 ####################################################################################
 
 include(CMakeFindDependencyMacro)
-if (ON)
+
+set(openexr_needthreads ON)
+if (openexr_needthreads)
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
   find_dependency(Threads REQUIRED)
 endif()
+unset(openexr_needthreads)
+
 find_dependency(ZLIB REQUIRED)
 find_dependency(Imath REQUIRED)
 

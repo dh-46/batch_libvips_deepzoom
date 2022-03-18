@@ -275,6 +275,7 @@ void    g_test_init                     (int            *argc,
  *  - g_get_user_config_dir()
  *  - g_get_system_data_dirs()
  *  - g_get_user_data_dir()
+ *  - g_get_user_state_dir()
  *  - g_get_user_runtime_dir()
  *
  * The subdirectories may not be created by the test harness; as with normal
@@ -345,10 +346,19 @@ const char * g_test_get_path            (void);
 /* tell about failure */
 GLIB_AVAILABLE_IN_2_30
 void    g_test_fail                     (void);
+GLIB_AVAILABLE_IN_2_70
+void    g_test_fail_printf              (const char *format,
+                                         ...) G_GNUC_PRINTF (1, 2);
 GLIB_AVAILABLE_IN_2_38
 void    g_test_incomplete               (const gchar *msg);
+GLIB_AVAILABLE_IN_2_70
+void    g_test_incomplete_printf        (const char *format,
+                                         ...) G_GNUC_PRINTF (1, 2);
 GLIB_AVAILABLE_IN_2_38
 void    g_test_skip                     (const gchar *msg);
+GLIB_AVAILABLE_IN_2_70
+void    g_test_skip_printf              (const char *format,
+                                         ...) G_GNUC_PRINTF (1, 2);
 GLIB_AVAILABLE_IN_2_38
 gboolean g_test_failed                  (void);
 GLIB_AVAILABLE_IN_2_38

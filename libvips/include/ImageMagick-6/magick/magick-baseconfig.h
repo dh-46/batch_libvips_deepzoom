@@ -774,11 +774,6 @@
 /* Define to 1 if you have the <sys/syslimits.h> header file. */
 /* #undef HAVE_SYS_SYSLIMITS_H */
 
-/* Define to 1 if you have the <sys/timeb.h> header file. */
-#ifndef MAGICKCORE_HAVE_SYS_TIMEB_H
-#define MAGICKCORE_HAVE_SYS_TIMEB_H 1
-#endif
-
 /* Define to 1 if you have the <sys/times.h> header file. */
 /* #undef HAVE_SYS_TIMES_H */
 
@@ -1107,7 +1102,7 @@
 
 /* Define to the address where bug reports for this package should be sent. */
 #ifndef MAGICKCORE_PACKAGE_BUGREPORT
-#define MAGICKCORE_PACKAGE_BUGREPORT "https://github.com/ImageMagick/ImageMagick/issues"
+#define MAGICKCORE_PACKAGE_BUGREPORT "https://github.com/ImageMagick/ImageMagick6/issues"
 #endif
 
 /* Define to the full name of this package. */
@@ -1117,7 +1112,7 @@
 
 /* Define to the full name and version of this package. */
 #ifndef MAGICKCORE_PACKAGE_STRING
-#define MAGICKCORE_PACKAGE_STRING "ImageMagick 6.9.12-19"
+#define MAGICKCORE_PACKAGE_STRING "ImageMagick 6.9.12-37"
 #endif
 
 /* Define to the one symbol short name of this package. */
@@ -1127,12 +1122,12 @@
 
 /* Define to the home page for this package. */
 #ifndef MAGICKCORE_PACKAGE_URL
-#define MAGICKCORE_PACKAGE_URL "https://imagemagick.org"
+#define MAGICKCORE_PACKAGE_URL "https://legacy.imagemagick.org"
 #endif
 
 /* Define to the version of this package. */
 #ifndef MAGICKCORE_PACKAGE_VERSION
-#define MAGICKCORE_PACKAGE_VERSION "6.9.12-19"
+#define MAGICKCORE_PACKAGE_VERSION "6.9.12-37"
 #endif
 
 /* Define if you have PANGOCAIRO library */

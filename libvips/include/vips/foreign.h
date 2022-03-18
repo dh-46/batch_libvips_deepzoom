@@ -100,6 +100,27 @@ typedef enum /*< flags >*/ {
 	VIPS_FOREIGN_ALL = 7		/* All flags set */
 } VipsForeignFlags;
 
+/** 
+ * VipsFailOn:
+ * @VIPS_FAIL_ON_NONE: never stop 
+ * @VIPS_FAIL_ON_TRUNCATED: stop on image truncated, nothing else
+ * @VIPS_FAIL_ON_ERROR: stop on serious error or truncation
+ * @VIPS_FAIL_ON_WARNING: stop on anything, even warnings
+ *
+ * How sensitive loaders are to errors, from never stop (very insensitive), to 
+ * stop on the smallest warning (very sensitive). 
+ * 
+ * Each one implies the ones before it, so #VIPS_FAIL_ON_ERROR implies
+ * #VIPS_FAIL_ON_TRUNCATED.
+ */
+typedef enum {
+	VIPS_FAIL_ON_NONE,
+	VIPS_FAIL_ON_TRUNCATED,
+	VIPS_FAIL_ON_ERROR,
+	VIPS_FAIL_ON_WARNING,
+	VIPS_FAIL_ON_LAST
+} VipsFailOn;
+
 #define VIPS_TYPE_FOREIGN_LOAD (vips_foreign_load_get_type())
 #define VIPS_FOREIGN_LOAD( obj ) \
 	(G_TYPE_CHECK_INSTANCE_CAST( (obj), \
@@ -131,12 +152,13 @@ typedef struct _VipsForeignLoad {
 	 */
 	VipsForeignFlags flags;
 
-	/* Stop load on first warning.
+	/* Behaviour on error.
+	 */
+	VipsFailOn fail_on;
+
+	/* Deprecated and unused. Just here for compat.
 	 */
 	gboolean fail;
-
-	/* Deprecated and unused, just here for compat.
-	 */
 	gboolean sequential;
 
 	/*< public >*/
@@ -491,7 +513,7 @@ typedef enum {
 } VipsForeignTiffCompression;
 
 /**
- * VipsForeignTiffPoor:
+ * VipsForeignTiffPredictor:
  * @VIPS_FOREIGN_TIFF_PREDICTOR_NONE: no prediction
  * @VIPS_FOREIGN_TIFF_PREDICTOR_HORIZONTAL: horizontal differencing
  * @VIPS_FOREIGN_TIFF_PREDICTOR_FLOAT: float predictor
@@ -612,6 +634,31 @@ int vips_pngsave( VipsImage *in, const char *filename, ... )
 int vips_pngsave_buffer( VipsImage *in, void **buf, size_t *len, ... )
 	__attribute__((sentinel));
 
+/**
+ * VipsForeignPpmFormat:
+ * @VIPS_FOREIGN_PPM_FORMAT_PBM: portable bitmap
+ * @VIPS_FOREIGN_PPM_FORMAT_PGM: portable greymap
+ * @VIPS_FOREIGN_PPM_FORMAT_PPM: portable pixmap
+ * @VIPS_FOREIGN_PPM_FORMAT_PFM: portable float map
+ *
+ * The netpbm file format to save as.
+ *
+ * #VIPS_FOREIGN_PPM_FORMAT_PBM images are single bit.
+ *
+ * #VIPS_FOREIGN_PPM_FORMAT_PGM images are 8, 16, or 32-bits, one band.
+ *
+ * #VIPS_FOREIGN_PPM_FORMAT_PPM images are 8, 16, or 32-bits, three bands.
+ *
+ * #VIPS_FOREIGN_PPM_FORMAT_PFM images are 32-bit float pixels.
+ */
+typedef enum {
+	VIPS_FOREIGN_PPM_FORMAT_PBM,
+	VIPS_FOREIGN_PPM_FORMAT_PGM,
+	VIPS_FOREIGN_PPM_FORMAT_PPM,
+	VIPS_FOREIGN_PPM_FORMAT_PFM,
+	VIPS_FOREIGN_PPM_FORMAT_LAST
+} VipsForeignPpmFormat;
+
 int vips_ppmload( const char *filename, VipsImage **out, ... )
 	__attribute__((sentinel));
 int vips_ppmload_source( VipsSource *source, VipsImage **out, ... )
@@ -648,6 +695,8 @@ int vips_svgload( const char *filename, VipsImage **out, ... )
 	__attribute__((sentinel));
 int vips_svgload_buffer( void *buf, size_t len, VipsImage **out, ... )
 	__attribute__((sentinel));
+int vips_svgload_string( const char *str, VipsImage **out, ... )
+	__attribute__((sentinel));
 int vips_svgload_source( VipsSource *source, VipsImage **out, ... )
 	__attribute__((sentinel));
 
@@ -656,6 +705,13 @@ int vips_gifload( const char *filename, VipsImage **out, ... )
 int vips_gifload_buffer( void *buf, size_t len, VipsImage **out, ... )
 	__attribute__((sentinel));
 int vips_gifload_source( VipsSource *source, VipsImage **out, ... )
+	__attribute__((sentinel));
+
+int vips_gifsave( VipsImage *in, const char *filename, ... )
+	__attribute__((sentinel));
+int vips_gifsave_buffer( VipsImage *in, void **buf, size_t *len, ... )
+	__attribute__((sentinel));
+int vips_gifsave_target( VipsImage *in, VipsTarget *target, ... )
 	__attribute__((sentinel));
 
 int vips_heifload( const char *filename, VipsImage **out, ... )
@@ -709,7 +765,8 @@ int vips_jxlsave_target( VipsImage *in, VipsTarget *target, ... )
  * @VIPS_FOREIGN_DZ_LAYOUT_DZ: use DeepZoom directory layout
  * @VIPS_FOREIGN_DZ_LAYOUT_ZOOMIFY: use Zoomify directory layout
  * @VIPS_FOREIGN_DZ_LAYOUT_GOOGLE: use Google maps directory layout
- * @VIPS_FOREIGN_DZ_LAYOUT_IIIF: use IIIF directory layout
+ * @VIPS_FOREIGN_DZ_LAYOUT_IIIF: use IIIF v2 directory layout
+ * @VIPS_FOREIGN_DZ_LAYOUT_IIIF3: use IIIF v3 directory layout
  *
  * What directory layout and metadata standard to use. 
  */
@@ -718,6 +775,7 @@ typedef enum {
 	VIPS_FOREIGN_DZ_LAYOUT_ZOOMIFY,
 	VIPS_FOREIGN_DZ_LAYOUT_GOOGLE,
 	VIPS_FOREIGN_DZ_LAYOUT_IIIF,
+	VIPS_FOREIGN_DZ_LAYOUT_IIIF3,
 	VIPS_FOREIGN_DZ_LAYOUT_LAST
 } VipsForeignDzLayout;
 

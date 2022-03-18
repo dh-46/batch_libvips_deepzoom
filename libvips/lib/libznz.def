@@ -6,13 +6,7 @@
 LIBRARY "libznz.dll"
 EXPORTS
 Xznzclose
-znzdopen
-znzeof
-znzflush
-znzgetc
-znzgets
 znzopen
-znzputc
 znzputs
 znzread
 znzrewind

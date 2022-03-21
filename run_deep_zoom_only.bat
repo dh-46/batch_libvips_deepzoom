@@ -6,6 +6,6 @@ for /r %%f in (input\*) do (
     echo %%f
     echo %%~nf
     cd .\libvips\bin\
-    start /wait vips dzsave %%f %outputDir%\%%~nf --layout google --background 256 --suffix .webp --tile-size 512
+    start /wait vips dzsave %%f %outputDir%\%%~nf --layout google --suffix .webp --background "0 0 0" --tile-size 512
 )
 pause
